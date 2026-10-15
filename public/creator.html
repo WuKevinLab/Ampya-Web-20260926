@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Creator</title>
+  <link rel="icon" href="/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" />
+  <style>
+    :root { --bg: #fff8e7; --card: #fff; --ink: #15131c; --muted: #5d5868; --hair: rgba(21,19,28,.14); --accent: #6c4cff; --accent-ink: #fff; --yellow: #ffd23f; --mint: #3ddc97; --pink: #ff7ac6; --sh: 4px 4px 0 var(--ink); color-scheme: light; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #15131c; --card: #201d2b; --ink: #f6f0e1; --muted: #b5adc4; --hair: rgba(246,240,225,.14); --sh: 4px 4px 0 #000; color-scheme: dark; } }
+    * { box-sizing: border-box; } [hidden] { display: none !important; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; background-image: radial-gradient(var(--hair) 1.5px, transparent 1.5px); background-size: 22px 22px; }
+    a { color: inherit; }
+    .wrap { max-width: 620px; margin: 0 auto; padding: 36px 16px 130px; }
+    .hero { text-align: center; padding: 6px 0 20px; position: relative; }
+    .hero::before { content: ''; position: absolute; left: 50%; top: 0; width: 132px; height: 132px; margin-left: -66px; border-radius: 50%; background: var(--yellow); border: 2px solid var(--ink); transform: translate(26px, -8px); z-index: 0; }
+    .av { width: 104px; height: 104px; margin: 0 auto 14px; display: grid; place-items: center; color: #fff; font: 700 42px "Space Grotesk", sans-serif; position: relative; z-index: 1; }
+    .av svg { position: absolute; inset: 0; overflow: visible; filter: drop-shadow(4px 4px 0 var(--ink)); }
+    .av svg > * { stroke: var(--ink); stroke-width: 4px; }
+    .av span { position: relative; }
+    h1 { font: 700 34px/1.05 "Space Grotesk", sans-serif; letter-spacing: -.03em; margin: 0; position: relative; }
+    .handle { color: var(--muted); font-size: 14px; font-weight: 600; margin-top: 4px; }
+    .bio { margin: 12px auto 0; max-width: 480px; font-size: 16px; }
+    .socials { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+    .chip { border: 2px solid var(--ink); background: var(--card); border-radius: 99px; padding: 5px 13px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; box-shadow: 2px 2px 0 var(--ink); }
+    .chip:nth-child(3n+1) b { background: var(--yellow); } .chip:nth-child(3n+2) b { background: var(--mint); } .chip:nth-child(3n) b { background: var(--pink); }
+    .chip b { font-weight: 800; color: #15131c; padding: 0 6px; border-radius: 6px; }
+    h2 { font: 700 13px "Space Grotesk", sans-serif; text-transform: uppercase; letter-spacing: .12em; color: var(--ink); margin: 34px 4px 12px; display: flex; align-items: center; gap: 10px; }
+    h2::after { content: ''; flex: 1; border-top: 2px dashed var(--hair); }
+    .card { background: var(--card); border: 2px solid var(--ink); border-radius: 18px; padding: 16px; margin-bottom: 12px; box-shadow: var(--sh); }
+    .link { display: block; text-align: center; font-weight: 700; text-decoration: none; padding: 15px; font-family: "Space Grotesk", sans-serif; font-size: 16px; transition: transform .08s, box-shadow .08s; }
+    .link:hover, .prod:hover, .pick:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .link:active, .prod:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+    .prod { display: flex; gap: 14px; align-items: center; cursor: pointer; transition: transform .08s, box-shadow .08s; }
+    .prod .ic { width: 54px; height: 54px; border-radius: 16px; border: 2px solid var(--ink); background: var(--yellow); display: grid; place-items: center; font-size: 25px; flex: none; }
+    .card:nth-of-type(3n+2) .ic { background: var(--mint); } .card:nth-of-type(3n) .ic { background: var(--pink); }
+    .prod .t { font: 700 16px "Space Grotesk", sans-serif; } .prod .s { color: var(--muted); font-size: 13.5px; }
+    .price { margin-left: auto; font: 700 15px "Space Grotesk", sans-serif; white-space: nowrap; background: var(--accent); color: var(--accent-ink); border: 2px solid var(--ink); border-radius: 10px; padding: 3px 9px; }
+    .price .muted { color: inherit; opacity: .8; }
+    .btn { border: 2px solid var(--ink); border-radius: 14px; padding: 12px 18px; font: 700 15px "Inter", sans-serif; cursor: pointer; background: var(--accent); color: var(--accent-ink); box-shadow: 3px 3px 0 var(--ink); transition: transform .08s, box-shadow .08s; }
+    .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+    .btn:active { transform: translate(3px, 3px); box-shadow: none; }
+    .btn.ghost { background: var(--card); color: var(--ink); }
+    .btn:disabled { opacity: .5; cursor: wait; }
+    input, textarea, select { width: 100%; border: 2px solid var(--ink); background: var(--card); color: var(--ink); border-radius: 12px; padding: 10px 12px; font: inherit; outline: none; margin-top: 5px; }
+    input:focus, textarea:focus, select:focus { box-shadow: 3px 3px 0 var(--accent); }
+    label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+    .picks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pick { text-decoration: none; padding: 13px 14px; margin: 0; transition: transform .08s, box-shadow .08s; }
+    .pick .t { font: 700 14.5px "Space Grotesk", sans-serif; } .pick .s { color: var(--muted); font-size: 12.5px; }
+    .muted { color: var(--muted); } .small { font-size: 13px; }
+    .sheet { position: fixed; inset: 0; background: rgba(21,19,28,.5); display: grid; place-items: end center; z-index: 40; backdrop-filter: blur(2px); }
+    .sheet .in { background: var(--card); width: 100%; max-width: 560px; max-height: 92vh; overflow: auto; border: 2px solid var(--ink); border-bottom: 0; border-radius: 26px 26px 0 0; padding: 24px; box-shadow: 0 -6px 0 var(--ink); }
+    .sheet h1 { font-size: 26px; }
+    @media (min-width: 640px) { .sheet { place-items: center; } .sheet .in { border-radius: 26px; border-bottom: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); } }
+    .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+    .slot { border: 2px solid var(--ink); background: var(--card); border-radius: 12px; padding: 9px 4px; text-align: center; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+    .slot.on { background: var(--accent); color: var(--accent-ink); }
+    .days { display: flex; gap: 8px; overflow-x: auto; padding: 4px 4px 8px 2px; }
+    .day { border: 2px solid var(--ink); background: var(--card); border-radius: 14px; padding: 8px 10px; text-align: center; cursor: pointer; min-width: 60px; color: var(--ink); font: 600 12px "Inter", sans-serif; box-shadow: 2px 2px 0 var(--ink); }
+    .day.on { background: var(--yellow); color: #15131c; }
+    .day b { display: block; font: 700 19px "Space Grotesk", sans-serif; }
+    .desc p { margin: 6px 0; } .desc ul { padding-left: 20px; }
+    .banner { background: var(--yellow); color: #3a2b00; border: 2px solid var(--ink); border-radius: 12px; padding: 8px 12px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+    footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 40px; font-weight: 600; }
+    footer a { color: var(--ink); }
+    .fab { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: flex; align-items: center; gap: 8px; background: var(--accent); color: var(--accent-ink); border: 2px solid var(--ink); border-radius: 99px; padding: 12px 20px; font: 700 15px "Inter", sans-serif; cursor: pointer; box-shadow: 4px 4px 0 var(--ink); animation: bob 3s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(-4px); } }
+    @media (prefers-reduced-motion: reduce) { .fab { animation: none; } }
+    .twin { position: fixed; right: 18px; bottom: 18px; width: min(390px, calc(100vw - 24px)); height: min(580px, calc(100vh - 36px)); background: var(--card); border: 2px solid var(--ink); border-radius: 22px; z-index: 35; display: flex; flex-direction: column; box-shadow: 8px 8px 0 var(--ink); overflow: hidden; }
+    .twin .hd { padding: 12px 14px; border-bottom: 2px solid var(--ink); display: flex; align-items: center; gap: 10px; background: var(--yellow); color: #15131c; }
+    .twin .hd .muted { color: #3d3420; }
+    .twin .hd .x { margin-left: auto; background: #fff; border: 2px solid #15131c; border-radius: 10px; width: 32px; height: 32px; font-size: 18px; cursor: pointer; color: #15131c; }
+    .twin .log { flex: 1; overflow: auto; padding: 14px; display: flex; flex-direction: column; gap: 9px; background: var(--bg); }
+    .twin .m { padding: 9px 13px; border-radius: 16px; max-width: 85%; white-space: pre-wrap; word-break: break-word; font-size: 14px; border: 2px solid var(--ink); }
+    .twin .m.a { background: var(--card); align-self: flex-start; border-bottom-left-radius: 5px; }
+    .twin .m.u { background: var(--accent); color: var(--accent-ink); align-self: flex-end; border-bottom-right-radius: 5px; }
+    .twin .m a { color: inherit; text-decoration: underline; font-weight: 600; }
+    .twin form { display: flex; gap: 8px; padding: 10px; border-top: 2px solid var(--ink); }
+    .twin form input { margin: 0; }
+    .twin .note { font-size: 11px; color: var(--muted); text-align: center; padding: 0 10px 8px; }
+    .kit-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .kit-stats .card { margin: 0; } .kit-stats .card:first-child { background: var(--yellow); color: #15131c; } .kit-stats .card:first-child .muted { color: #3d3420; }
+    .big { font: 700 34px/1.1 "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+    .brands { display: flex; flex-wrap: wrap; gap: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="root"><div class="muted" style="text-align:center;margin-top:30vh">Loading…</div></div>
+  <div id="sheet" class="sheet" hidden></div>
+  <script src="/js/creator.js"></script>
+</body>
+</html>

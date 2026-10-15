@@ -1,0 +1,16 @@
+{
+  "name": "creator-crew",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Creator Crew — an AI business team for creators: brand deals, products, booking, affiliate links, link-in-bio and an AI twin.",
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --no-warnings=ExperimentalWarning server/index.js",
+    "dev": "node --env-file-if-exists=.env --no-warnings=ExperimentalWarning --watch server/index.js",
+    "test": "node --no-warnings=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.134.0"
+  }
+}
